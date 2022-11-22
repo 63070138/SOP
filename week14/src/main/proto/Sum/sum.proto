@@ -1,0 +1,19 @@
+syntax = "proto3";
+package sum;
+option java_package = "com.proto.sum";
+option java_multiple_files = true;
+message MyNum{
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+message SumRequest {
+  MyNum numbers = 1;
+
+}
+message SumResponse {
+  int32 result = 1;
+}
+service SumService {
+  // Unary
+  rpc Sum(SumRequest) returns (SumResponse){};
+}
